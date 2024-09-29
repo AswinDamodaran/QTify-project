@@ -4,7 +4,7 @@ import Hero from './components/Hero/Hero';
 import Faq from './components/FAQ/faq';
 import Section from './components/Section/Section';
 import styles from "./main.module.css"
-
+import BasicTabs from './components/Tabscomponent/TabsComponent';
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import Carousel from './components/Carousel/Carousel';
@@ -62,7 +62,7 @@ const Main = () => {
       ) : (
         <Carousel title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
       )}
-    {/* <Tabs/> */}
+    <BasicTabs/>
 
       <Faq />
     </div>

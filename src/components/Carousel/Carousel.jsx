@@ -9,23 +9,24 @@ import Button from '@mui/material/Button';
 import RightNav from './Rightnav';
 import LeftNav from './Leftnav';
 
-function Carousel({ title, topAlbums, toggle, handleToggle }) {
+function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
   return (
     <div className={styles.wrapper}>
-      <div className={styles.showall}>
-        <div className={styles.title}>
-          <h3>{title}</h3>
-        </div>
-        <div>
-          <Button
-            sx={{ color: '#34C94B', textTransform: 'none', mr: 7 }}
-            type="text"
-            onClick={handleToggle}
-          >
-            <h3>{toggle ? `Collapse` : `Show all`}</h3>
-          </Button>
-        </div>
-      </div>
+{no ?(<div></div> ):
+(      <div className={styles.showall}>
+  <div className={styles.title}>
+    <h3>{title}</h3>
+  </div>
+  <div>
+    <Button
+      sx={{ color: '#34C94B', textTransform: 'none', mr: 7 }}
+      type="text"
+      onClick={handleToggle}
+    >
+      <h3>{toggle ? `Collapse` : `Show all`}</h3>
+    </Button>
+  </div>
+</div>)}
 
       <div className={styles.swiper}>
 
@@ -48,6 +49,9 @@ function Carousel({ title, topAlbums, toggle, handleToggle }) {
 
         </Swiper>
 
+      </div>
+      <div className={styles.line}>
+            
       </div>
     </div>
   )

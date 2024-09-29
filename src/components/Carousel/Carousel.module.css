@@ -39,6 +39,11 @@
     transform: translateY(-50%); 
     z-index: 2; 
 }
+.line{
+    background-color: #34C94B;
+    height: 1px;
+    width: 100%;
+}
 
 
   
