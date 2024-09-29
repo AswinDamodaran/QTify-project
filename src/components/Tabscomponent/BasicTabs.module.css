@@ -9,3 +9,8 @@
     align-items: center;
     padding-left: 30px;
 }
+.line{
+    background-color: #34C94B;
+    height: 1px;
+    width: 100%;
+}

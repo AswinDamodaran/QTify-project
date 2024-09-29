@@ -33,7 +33,9 @@ function Section({ title, topAlbums,toggle, handleToggle }) {
           </div>
         ))}
       </div>
-
+             <div className={styles.line}>
+            
+      </div>
     </div>
   )
 }

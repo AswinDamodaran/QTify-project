@@ -87,6 +87,9 @@ function TabsComponent() {
 
   return (
     <div className={styles.main}>
+                   <div className={styles.line}>
+            
+            </div>
       <div className={styles.title}>
         <div>
         <h3>Songs</h3>

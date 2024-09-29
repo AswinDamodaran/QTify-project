@@ -89,9 +89,7 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
         </div>
 
       </div>
-      <div className={styles.line}>
-            
-      </div>
+ 
     </div>
   )
 }
