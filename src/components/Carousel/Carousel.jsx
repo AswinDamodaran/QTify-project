@@ -23,7 +23,7 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
       type="text"
       onClick={handleToggle}
     >
-      <h3>{toggle ? `Collapse` : `Show all`}</h3>
+      <h3>{toggle ? `Collapse` : `Show All`}</h3>
     </Button>
   </div>
 </div>)}
@@ -33,7 +33,7 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
         <Swiper
           modules={[Navigation]}
           initialSlide={0}
-          slidesPerView={7}
+          slidesPerView={"auto"}
           spaceBetween={20}
           allowTouchMove
         >'
@@ -41,8 +41,8 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
 
 
             {topAlbums.map((album, index) => (
-              <SwiperSlide key={index}>
-                <Card album={album} />
+              <SwiperSlide key={index} style={{ width: 'auto' }}>
+                <Card album={album}  />
               </SwiperSlide>
             ))}
             <RightNav className={styles.rightnav} />

@@ -7,7 +7,7 @@ export default function card(data) {
   // console.log("from card",data.album)
   return (
     <div className={styles.wrapper}>
-      <Card sx={{ maxWidth: 200 }}>
+      <Card sx={{width: "159px"}}>
         <CardActionArea>
           <CardMedia
             className={styles.cardimage}
