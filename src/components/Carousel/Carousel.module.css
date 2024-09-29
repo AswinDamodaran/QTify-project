@@ -1,0 +1,44 @@
+.showall{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #121212;
+    width: 100%;
+    
+}
+.title{
+    color: #FFFFFF;
+    margin-left: 50px;
+}
+.swiper{
+    background-color: #121212;
+    margin: 0 50px;
+    position: relative;
+    /* display: flex; */
+
+
+}
+.main{
+    background-color: #121212;
+}
+.wrapper{
+    background-color: #121212;
+    /* position: relative; */
+}
+.leftnav {
+    position: absolute;
+    top: 40%; 
+    left: 0; 
+    transform: translateY(-50%);
+    z-index: 2; 
+}
+.rightnav {
+    position: absolute;
+    top: 40%;
+    right: 0; 
+    transform: translateY(-50%); 
+    z-index: 2; 
+}
+
+
+  

@@ -1,0 +1,23 @@
+.main{
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 30px;
+    background-color: #121212;
+    color: #FFFFFF ;
+
+}
+.accordions{
+    width: 70vw;
+}
+.texts{
+    font-weight: 500;
+}
+.acc{
+    /* sx={{bgcolor:"#121212",color:"#FFFFFF",borde}} */
+    background-color:#121212 ;
+    color:#FFFFFF ;
+}

@@ -1,0 +1,18 @@
+.cardimage{
+    object-fit: cover;
+    
+}
+.chip{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #FFFFFF;
+    border-radius: 0 0 5px 5px;
+}
+.title{
+    text-align: start;
+    padding: 0;
+    background-color:#121212 ;
+    color: #FFFFFF;
+    padding-top: 5px;
+}
