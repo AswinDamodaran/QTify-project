@@ -62,7 +62,7 @@ const Main = () => {
       ) : (
         <Carousel title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
       )}
-
+    {/* <Tabs/> */}
 
       <Faq />
     </div>

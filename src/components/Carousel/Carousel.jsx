@@ -31,6 +31,7 @@ function Carousel({ title, topAlbums, toggle, handleToggle }) {
 
         <Swiper
           modules={[Navigation]}
+          initialSlide={0}
           slidesPerView={7}
           spaceBetween={20}
           allowTouchMove

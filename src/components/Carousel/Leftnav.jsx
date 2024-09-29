@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import { ReactComponent as LeftArrow } from '../../materials/LeftArrow.svg';
 
 import { useSwiper } from 'swiper/react';
 import { useState } from 'react';
