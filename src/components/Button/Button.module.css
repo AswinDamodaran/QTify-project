@@ -1,4 +1,7 @@
 .btn:hover{
     color: black;
-    font-style: "poppins";
+    
+}
+.btn{
+    font-family: 'Poppins', sans-serif;
 }
