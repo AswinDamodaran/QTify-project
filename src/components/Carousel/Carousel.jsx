@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useRef,useState} from 'react'
 import styles from './Carousel.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
@@ -8,8 +8,15 @@ import Card from "../Card/card"
 import Button from '@mui/material/Button';
 import RightNav from './Rightnav';
 import LeftNav from './Leftnav';
+// import { Pagination } from '@mui/material';
 
 function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
+
+  const [isBeginning, setIsBeginning] = useState(true); // To track if we are at the first slide
+  const [isEnd, setIsEnd] = useState(false); 
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
+
   return (
     <div className={styles.wrapper}>
 {no ?(<div></div> ):
@@ -36,8 +43,34 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
           slidesPerView={"auto"}
           spaceBetween={20}
           allowTouchMove
+
+
+          onSlideChange={(swiper) => {
+            // Check if we are at the beginning or the end of the slides
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
+          }}
+
+          // onReachBeginning={() => setIsBeginning(true)}
+          // onReachEnd={() => setIsEnd(true)}
+          // onFromEdge={() => {
+            // When moving away from the first or last slide
+          //   setIsBeginning(false);
+          //   setIsEnd(false);
+          // }}
+
+
+
+          navigation={{
+            prevEl: prevRef.current,
+          nextEl: nextRef.current,
+          }}
+          onBeforeInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }}
         >'
-            <LeftNav className={styles.leftnav} />
+            {/* <LeftNav className={styles.leftnav} /> */}
 
 
             {topAlbums.map((album, index) => (
@@ -45,9 +78,15 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
                 <Card album={album}  />
               </SwiperSlide>
             ))}
-            <RightNav className={styles.rightnav} />
+            {/* <RightNav className={styles.rightnav} />/ */}
 
         </Swiper>
+        <div ref={prevRef} className={styles.leftnav} style={{ display: isBeginning ? 'none' : 'block' }}>
+          <LeftNav />
+        </div>
+        <div ref={nextRef} className={styles.rightnav} style={{ display: isEnd ? 'none' : 'block' }}>
+          <RightNav />
+        </div>
 
       </div>
       <div className={styles.line}>
