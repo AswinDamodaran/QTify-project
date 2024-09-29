@@ -7,7 +7,7 @@ import Button from "../Button/Button";
 function Navbar({ searchData }) {
   return (
     <nav className={styles.navbar}>
-      <Logo className={styles.logo} />
+      <Logo  className={styles.logo} />
       <Search />
       <Button />
     </nav>
