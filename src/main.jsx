@@ -52,16 +52,17 @@ const Main = () => {
     <div>
       <Navbar />
       <Hero />
-      {toggle ? (
-        <Section title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
-      ) : (
-        <Carousel title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
-      )}
       {toggle2 ? (
         <Section title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
       ) : (
         <Carousel title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
       )}
+      {toggle ? (
+        <Section title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
+      ) : (
+        <Carousel title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
+      )}
+
     <BasicTabs/>
 
       <Faq />
