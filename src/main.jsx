@@ -43,9 +43,11 @@ const Main = () => {
   };
 
   useEffect(() => {
-    getTop()
-    getNew()
-  }, [])
+    setTimeout(() => {
+      getTop()
+      getNew()
+    }, 500);
+  }, []);
 
 
   return (
@@ -53,14 +55,14 @@ const Main = () => {
       <Navbar />
       <Hero />
       {toggle2 ? (
-        <Section key={"top-section"} title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
+        <Section title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
       ) : (
         <Carousel title={"Top-carousel"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
       )}
       {toggle ? (
-        <Section key={"New-section"} title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
+        <Section title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
       ) : (
-        <Carousel key={"New-caousel"} title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
+        <Carousel  title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
       )}
 
     <BasicTabs/>
