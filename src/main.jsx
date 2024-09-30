@@ -5,7 +5,7 @@ import Faq from './components/FAQ/faq';
 import Section from './components/Section/Section';
 import styles from "./main.module.css"
 import BasicTabs from './components/Tabscomponent/TabsComponent';
-import { useState, useEffect } from 'react'
+import { useState, useEffect,useCallback } from 'react'
 import axios from 'axios';
 import Carousel from './components/Carousel/Carousel';
 
@@ -31,16 +31,15 @@ const Main = () => {
     return res.data
   }
 
-  const handleToggle = () => {
+  const handleToggle = useCallback(() => {
     setToggle(!toggle)
 
 
-  };
-  const handleToggle2 = () => {
+  },[toggle])
+  const handleToggle2 =useCallback( () => {
     setToggle2(!toggle2)
 
-
-  };
+  },[toggle2])
 
   useEffect(() => {
     getTop()
