@@ -43,10 +43,8 @@ const Main = () => {
   // };
 
   useEffect(() => {
-    setTimeout(() => {
       getTop()
       getNew()
-    }, 500);
   }, []);
 
 

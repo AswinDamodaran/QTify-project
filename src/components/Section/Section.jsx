@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 
 
 
-function Section({ title, topAlbums,toggle, handleToggle }) {
+function Section({ title, topAlbums }) {
   console.log(toggle)
 
   return (
