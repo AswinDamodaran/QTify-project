@@ -15,7 +15,7 @@ const Main = () => {
   const [topAlbums, setTopAlbums] = useState([])
   const [newAlbums, setNewAlbums] = useState([])
   const [toggle, setToggle] = useState(false)
-  const [toggle2,setToggle2]=useState(false)
+  const [toggle2, setToggle2] = useState(false)
 
   // getting data from the backend
   const getTop = async () => {
@@ -54,18 +54,20 @@ const Main = () => {
     <div>
       <Navbar />
       <Hero />
-      {toggle2 ? (
-        <Section title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
-      ) : (
-        <Carousel title={"Top-carousel"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
-      )}
+
       {toggle ? (
         <Section title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
       ) : (
-        <Carousel  title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
+        <Carousel title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
       )}
 
-    <BasicTabs/>
+      {toggle2 ? (
+        <Section title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
+      ) : (
+        <Carousel title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
+      )}
+
+      <BasicTabs />
 
       <Faq />
     </div>

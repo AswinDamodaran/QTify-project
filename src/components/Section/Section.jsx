@@ -21,7 +21,7 @@ function Section({ title, topAlbums,toggle, handleToggle }) {
           type="text"
         onClick={handleToggle}
         >
-          <h3>{toggle ? `Collapse` : `Show all` }</h3>
+          <h3>Collapse</h3>
         </Button>
     </div>
       </div>
