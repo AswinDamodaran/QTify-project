@@ -8,14 +8,21 @@ import Card from "../Card/card"
 import Button from '@mui/material/Button';
 import RightNav from './Rightnav';
 import LeftNav from './Leftnav';
+import Section from '../Section/Section';
 // import { Pagination } from '@mui/material';
 
-function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
+function Carousel({ title, topAlbums ,no}) {
 
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false); 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [showSection,setShowSection]=useState(fasle)
+
+  const handleToggle=()=>{
+
+    setShowSection(true)
+  }
 
   return (
     <div className={styles.wrapper}>
@@ -35,60 +42,64 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
   </div>
 </div>)}
 
-      <div className={styles.swiper}>
+  {showSection ? (
+    <Section/>
+  ):(
+    <div className={styles.swiper}>
 
-        <Swiper
-          modules={[Navigation]}
-          initialSlide={0}
-          slidesPerView={"auto"}
-          spaceBetween={50}
-          allowTouchMove
-
-
-          onSlideChange={(swiper) => {
-            // Check if we are at the beginning or the end of the slides
-            setIsBeginning(swiper.isBeginning);
-            setIsEnd(swiper.isEnd);
-          }}
-
-          // onReachBeginning={() => setIsBeginning(true)}
-          // onReachEnd={() => setIsEnd(true)}
-          // onFromEdge={() => {
-            // When moving away from the first or last slide
-          //   setIsBeginning(false);
-          //   setIsEnd(false);
-          // }}
+    <Swiper
+      modules={[Navigation]}
+      initialSlide={0}
+      slidesPerView={"auto"}
+      spaceBetween={50}
+      allowTouchMove
 
 
+      onSlideChange={(swiper) => {
+        // Check if we are at the beginning or the end of the slides
+        setIsBeginning(swiper.isBeginning);
+        setIsEnd(swiper.isEnd);
+      }}
 
-          navigation={{
-            prevEl: prevRef.current,
-          nextEl: nextRef.current,
-          }}
-          onBeforeInit={(swiper) => {
-            swiper.params.navigation.prevEl = prevRef.current;
-            swiper.params.navigation.nextEl = nextRef.current;
-          }}
-        >'
-            {/* <LeftNav className={styles.leftnav} /> */}
+      // onReachBeginning={() => setIsBeginning(true)}
+      // onReachEnd={() => setIsEnd(true)}
+      // onFromEdge={() => {
+        // When moving away from the first or last slide
+      //   setIsBeginning(false);
+      //   setIsEnd(false);
+      // }}
 
 
-            {topAlbums.map((album, index) => (
-              <SwiperSlide key={index} style={{ width: 'auto' }}>
-                <Card album={album}  />
-              </SwiperSlide>
-            ))}
-            {/* <RightNav className={styles.rightnav} />/ */}
 
-        </Swiper>
-        <div ref={prevRef} className={styles.leftnav} style={{ display: isBeginning ? 'none' : 'block' }}>
-          <LeftNav />
-        </div>
-        <div ref={nextRef} className={styles.rightnav} style={{ display: isEnd ? 'none' : 'block' }}>
-          <RightNav />
-        </div>
+      navigation={{
+        prevEl: prevRef.current,
+      nextEl: nextRef.current,
+      }}
+      onBeforeInit={(swiper) => {
+        swiper.params.navigation.prevEl = prevRef.current;
+        swiper.params.navigation.nextEl = nextRef.current;
+      }}
+    >'
+        {/* <LeftNav className={styles.leftnav} /> */}
 
-      </div>
+
+        {topAlbums.map((album, index) => (
+          <SwiperSlide key={index} style={{ width: 'auto' }}>
+            <Card album={album}  />
+          </SwiperSlide>
+        ))}
+        {/* <RightNav className={styles.rightnav} />/ */}
+
+    </Swiper>
+    <div ref={prevRef} className={styles.leftnav} style={{ display: isBeginning ? 'none' : 'block' }}>
+      <LeftNav />
+    </div>
+    <div ref={nextRef} className={styles.rightnav} style={{ display: isEnd ? 'none' : 'block' }}>
+      <RightNav />
+    </div>
+
+  </div>
+  )}
  
     </div>
   )

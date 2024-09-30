@@ -14,8 +14,8 @@ const Main = () => {
 
   const [topAlbums, setTopAlbums] = useState([])
   const [newAlbums, setNewAlbums] = useState([])
-  const [toggle, setToggle] = useState(false)
-  const [toggle2, setToggle2] = useState(false)
+  // const [toggle, setToggle] = useState(false)
+  // const [toggle2, setToggle2] = useState(false)
 
   // getting data from the backend
   const getTop = async () => {
@@ -31,16 +31,16 @@ const Main = () => {
     return res.data
   }
 
-  const handleToggle = () => {
-    setToggle(!toggle)
+  // const handleToggle = () => {
+  //   setToggle(!toggle)
 
 
-  };
-  const handleToggle2 = () => {
-    setToggle2(!toggle2)
+  // };
+  // const handleToggle2 = () => {
+  //   setToggle2(!toggle2)
 
 
-  };
+  // };
 
   useEffect(() => {
     setTimeout(() => {
@@ -54,8 +54,10 @@ const Main = () => {
     <div>
       <Navbar />
       <Hero />
+      <Carousel title={"Top Albums"} topAlbums={topAlbums}  />
+      <Carousel title={"New Albums"} topAlbums={newAlbums}  />
 
-      {toggle ? (
+      {/* {toggle ? (
         <Section title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
       ) : (
         <Carousel title={"Top Albums"} topAlbums={topAlbums} toggle={toggle} handleToggle={handleToggle} />
@@ -65,7 +67,7 @@ const Main = () => {
         <Section title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
       ) : (
         <Carousel title={"New Albums"} topAlbums={newAlbums} toggle={toggle2} handleToggle={handleToggle2} />
-      )}
+      )} */}
 
       <BasicTabs />
 

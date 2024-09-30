@@ -97,7 +97,7 @@ function TabsComponent() {
       </div>
       <Box sx={{ width: '100%' }}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-          <Tabs textColor="#ffffff"
+          <Tabs 
             TabIndicatorProps={{
               style: {
                 backgroundColor: '#34C94B', fontWeight: 600
