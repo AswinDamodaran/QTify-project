@@ -6,11 +6,13 @@ import  Card  from './components/Card/card';
 import { Link } from '@mui/icons-material';
 
 import Main from "./main"
+import Main2 from './components/Main2';
 
 function App() {
   return (
     <div  className="App">
-      <Main/>
+      {/* <Main/> */}
+      <Main2/>
     </div>
   );
 }
