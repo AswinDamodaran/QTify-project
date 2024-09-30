@@ -4,9 +4,9 @@ import styles from "./card.module.css"
 
 
 export default function card({data}) {
-  console.log("from card",data.image)
+  // console.log("from card",data.image)
   return (
-    <div className={styles.wrapper} width={"159px"}>
+    <div className={styles.wrapper} style={{width:"159px"}}>
       <Card sx={{width: "159px"}}>
         <CardActionArea>
           <CardMedia
@@ -23,7 +23,7 @@ export default function card({data}) {
     
         </CardActionArea>
       </Card>
-      <div className={styles.title}  >
+      <div className={styles.title} style={{width:"159px"}}  >
       {data.title}
           </div>
     </div>

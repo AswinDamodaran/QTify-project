@@ -47,32 +47,15 @@ import style from './Section.module.css'
 import axios from 'axios'
 import Card from "../Card/card"
 
-function Section() {
+function Section({title,data}) {
 
-  const [topAlbums, setTopabums] = useState([])
-
-  const fetchTop = async () => {
-    try {
-      const res = await axios.get(`https://qtify-backend-labs.crio.do/albums/top`)
-      setTopabums(res.data)
-      console.log(res.data)
-
-    }
-    catch (err) {
-      console.log(err)
-    }
-  }
-
-  useEffect(() => {
-    fetchTop()
-  }, [])
-
+  // console.log(data)
 
   return (
     <div className={style.main} >
       <div className={style.title} >
         <div>
-          Top Albums
+          {title}
         </div>
         <div>
           <Button sx={{ color: "#34C94B", fontWeight: "600", font: "Poppins" }} variant="text">Collapse</Button>
@@ -81,7 +64,7 @@ function Section() {
 
 
       <div className={style.gridcontainer}>
-        {topAlbums.map((album, idx) => (
+        {data.map((album, idx) => (
           <div key={idx}>
             <Card data={album} />
           </div>

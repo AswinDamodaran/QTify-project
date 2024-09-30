@@ -14,16 +14,12 @@
     background-color: #121212;
     margin: 0 50px;
     position: relative;
-    /* display: flex; */
 
 
-}
-.main{
-    background-color: #121212;
 }
 .wrapper{
     background-color: #121212;
-    /* position: relative; */
+    width: 100%;
 }
 .leftnav {
     position: absolute;
