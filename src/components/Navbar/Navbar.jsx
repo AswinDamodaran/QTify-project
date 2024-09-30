@@ -7,9 +7,9 @@ import Button from "../Button/Button";
 function Navbar({ searchData }) {
   return (
     <nav className={styles.navbar} style={{alignItems:"center"}}>
-      <Logo  className={styles.logo} />
-      <Search />
-      <Button />
+      <div><Logo  className={styles.logo} /></div>
+      <div><Search /></div>
+      <div><Button /></div>
     </nav>
   );
 }
