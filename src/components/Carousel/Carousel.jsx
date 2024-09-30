@@ -30,7 +30,7 @@ function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
         type="text"
         onClick={handleToggle}
       >
-        <h3>show All</h3>
+        <h3>show all</h3>
       </Button>
     </div>
   </div>
