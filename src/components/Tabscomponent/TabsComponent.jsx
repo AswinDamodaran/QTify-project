@@ -113,19 +113,19 @@ function TabsComponent() {
           </Tabs>
         </Box>
         <CustomTabPanel value={value} index={0}>
-          <Carousel title="Songs" topAlbums={fileterData} no />
+          <Carousel title="Songs" data={fileterData} no />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1}>
-          <Carousel title="Rock" topAlbums={fileterData} no />
+          <Carousel title="Rock" data={fileterData} no />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={2}>
-          <Carousel title="Pop" topAlbums={fileterData} no />
+          <Carousel title="Pop" data={fileterData} no />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={3}>
-          <Carousel title="Jazz" topAlbums={fileterData} no />
+          <Carousel title="Jazz" data={fileterData} no />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={4}>
-          <Carousel title="Blues" topAlbums={fileterData} no />
+          <Carousel title="Blues" data={fileterData} no />
         </CustomTabPanel>
       </Box>
     </div>

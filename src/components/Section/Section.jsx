@@ -53,14 +53,14 @@ function Section({title,data}) {
 
   return (
     <div className={style.main} >
-      <div className={style.title} >
+      {/* <div className={style.title} >
         <div>
           {title}
         </div>
         <div>
           <Button sx={{ color: "#34C94B", fontWeight: "600", font: "Poppins" }} variant="text">Collapse</Button>
         </div>
-      </div>
+      </div> */}
 
 
       <div className={style.gridcontainer}>

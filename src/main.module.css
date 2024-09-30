@@ -1,0 +1,12 @@
+
+.title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:  0% 4%;
+    
+}
+.main{
+    background-color: #121212;
+    color: #FFFFFF;
+}

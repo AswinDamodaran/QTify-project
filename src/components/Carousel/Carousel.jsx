@@ -96,24 +96,26 @@ import styles from './Carousel.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
 import 'swiper/css/navigation';
-import { Navigation} from 'swiper/modules';
+import { Navigation } from 'swiper/modules';
 import Card from "../Card/card"
 
-function Carousel({ data }) {
+function Carousel({title, data }) {
+
+
+
   return (
     <div className={styles.wrapper}>
-      <div  className={styles.swiper}>
+      <div className={styles.swiper}>
         <Swiper
           modules={[Navigation]}
           initialSlide={0}
           navigation
-          slidesPerView={"auto"}
+          slidesPerView={7}
           spaceBetween={40}
           allowTouchMove
-          direction="horizontal"
         >
           {data.map((album, idx) => (
-            <SwiperSlide key={idx} className={styles.swiperslide} >
+            <SwiperSlide key={idx} className={styles.swiperslide}  >
               <Card data={album} />
             </SwiperSlide>
           ))}

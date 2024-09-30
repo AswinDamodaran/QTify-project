@@ -6,8 +6,8 @@ import styles from "./card.module.css"
 export default function card({data}) {
   // console.log("from card",data.image)
   return (
-    <div className={styles.wrapper} style={{width:"159px"}}>
-      <Card sx={{width: "159px"}}>
+    <div className={styles.wrapper}>
+      <Card sx={{width: "auto",maxWidth:"159px"}}>
         <CardActionArea>
           <CardMedia
             className={styles.cardimage}
@@ -23,7 +23,7 @@ export default function card({data}) {
     
         </CardActionArea>
       </Card>
-      <div className={styles.title} style={{width:"159px"}}  >
+      <div className={styles.title}   >
       {data.title}
           </div>
     </div>
