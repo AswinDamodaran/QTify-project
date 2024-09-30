@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React,{useRef,useState} from 'react'
 import styles from './Carousel.module.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css'
@@ -10,30 +10,30 @@ import RightNav from './Rightnav';
 import LeftNav from './Leftnav';
 // import { Pagination } from '@mui/material';
 
-function Carousel({ title, topAlbums, toggle, handleToggle, no }) {
+function Carousel({ title, topAlbums, toggle, handleToggle ,no}) {
 
-  const [showNext, setShowNext] = useState(true); // To track if we are at the first slide
-  const [showprev, setPrev] = useState(false);
+  const [isBeginning, setIsBeginning] = useState(true);
+  const [isEnd, setIsEnd] = useState(false); 
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
   return (
     <div className={styles.wrapper}>
-      {no ? (<div></div>) :
-        (<div className={styles.showall}>
-          <div className={styles.title}>
-            <h3>{title}</h3>
-          </div>
-          <div>
-            <Button
-              sx={{ color: '#34C94B', textTransform: 'none', mr: 7 }}
-              type="text"
-              onClick={handleToggle}
-            >
-              <h3>{toggle ? `Collapse` : `Show All`}</h3>
-            </Button>
-          </div>
-        </div>)}
+{no ?(<div></div> ):
+(      <div className={styles.showall}>
+  <div className={styles.title}>
+    <h3>{title}</h3>
+  </div>
+  <div>
+    <Button
+      sx={{ color: '#34C94B', textTransform: 'none', mr: 7 }}
+      type="text"
+      onClick={handleToggle}
+    >
+      <h3>{toggle ? `Collapse` : `Show All`}</h3>
+    </Button>
+  </div>
+</div>)}
 
       <div className={styles.swiper}>
 
@@ -41,66 +41,55 @@ function Carousel({ title, topAlbums, toggle, handleToggle, no }) {
           modules={[Navigation]}
           initialSlide={0}
           slidesPerView={"auto"}
-          spaceBetween={20}
+          spaceBetween={50}
           allowTouchMove
 
 
           onSlideChange={(swiper) => {
-            if (swiper.isEnd) {
-              setShowNextButton(false);
-            } else {
-              setShowNextButton(true);
-            }
-            if (swiper.isBeginning) {
-              setShowPrevButton(false);
-            } else {
-              setShowPrevButton(true);
-            }
+            // Check if we are at the beginning or the end of the slides
+            setIsBeginning(swiper.isBeginning);
+            setIsEnd(swiper.isEnd);
           }}
 
-        // onReachBeginning={() => setIsBeginning(true)}
-        // onReachEnd={() => setIsEnd(true)}
-        // onFromEdge={() => {
-        // When moving away from the first or last slide
-        //   setIsBeginning(false);
-        //   setIsEnd(false);
-        // }}
+          // onReachBeginning={() => setIsBeginning(true)}
+          // onReachEnd={() => setIsEnd(true)}
+          // onFromEdge={() => {
+            // When moving away from the first or last slide
+          //   setIsBeginning(false);
+          //   setIsEnd(false);
+          // }}
 
 
 
-        //   navigation={{
-        //     prevEl: prevRef.current,
-        //   nextEl: nextRef.current,
-        //   }}
-        //   onBeforeInit={(swiper) => {
-        //     swiper.params.navigation.prevEl = prevRef.current;
-        //     swiper.params.navigation.nextEl = nextRef.current;
-        //   }}
-        >
-          {/* <LeftNav className={styles.leftnav} /> */}
+          navigation={{
+            prevEl: prevRef.current,
+          nextEl: nextRef.current,
+          }}
+          onBeforeInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+          }}
+        >'
+            {/* <LeftNav className={styles.leftnav} /> */}
 
 
-          {topAlbums.map((album, index) => (
-            <SwiperSlide key={index} style={{ width: 'auto' }}>
-              <Card album={album} />
-            </SwiperSlide>
-          ))}
-          {/* <RightNav className={styles.rightnav} />/ */}
+            {topAlbums.map((album, index) => (
+              <SwiperSlide key={index} style={{ width: 'auto' }}>
+                <Card album={album}  />
+              </SwiperSlide>
+            ))}
+            {/* <RightNav className={styles.rightnav} />/ */}
 
         </Swiper>
-        {showPrevButton && (
-          <div ref={prevRef} className={styles.leftnav}>
-            <LeftNav />
-          </div>
-        )}
-        {showNextButton && (
-          <div ref={nextRef} className={styles.rightnav}>
-            <RightNav />
-          </div>
-        )}
+        <div ref={prevRef} className={styles.leftnav} style={{ display: isBeginning ? 'none' : 'block' }}>
+          <LeftNav />
+        </div>
+        <div ref={nextRef} className={styles.rightnav} style={{ display: isEnd ? 'none' : 'block' }}>
+          <RightNav />
+        </div>
 
       </div>
-
+ 
     </div>
   )
 }
